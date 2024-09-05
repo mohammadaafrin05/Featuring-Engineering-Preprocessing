@@ -1,0 +1,169 @@
+1)def calculate_mean(vector):
+    total_sum = 0.0
+    for value in vector:
+        total_sum += value
+    return total_sum / len(vector)
+def calculate_variance(vector, mean):
+    variance_sum = 0.0
+    for value in vector:
+        variance_sum += (value - mean) ** 2
+    return variance_sum / len(vector)
+feature_vector = [2.0, 4.0, 4.0, 4.0, 5.0, 5.0, 7.0, 9.0]
+mean = calculate_mean(feature_vector)
+variance = calculate_variance(feature_vector, mean)
+print("Mean:", mean)
+print("Variance:", variance)
+
+Output:
+Mean: 5.0
+Variance: 4.0
+
+2)def calculate_mean(vector):
+    total_sum = 0.0
+    for value in vector:
+        total_sum += value
+    return total_sum / len(vector)
+
+def calculate_covariance(vector1, vector2, mean1, mean2):
+    covariance_sum = 0.0
+    for i in range(len(vector1)):
+        covariance_sum += (vector1[i] - mean1) * (vector2[i] - mean2)
+    return covariance_sum / len(vector1)
+
+vector1 = [2.0, 4.0, 6.0, 8.0, 10.0]
+vector2 = [1.0, 3.0, 5.0, 7.0, 9.0]
+
+mean1 = calculate_mean(vector1)
+mean2 = calculate_mean(vector2)
+covariance = calculate_covariance(vector1, vector2, mean1, mean2)
+
+print(f"Mean of Vector 1: {mean1}")
+print(f"Mean of Vector 2: {mean2}")
+print(f"Covariance: {covariance}")
+
+Output:
+Mean of Vector 1: 6.0
+Mean of Vector 2: 5.0
+Covariance: 8.0
+
+3)import math
+
+def calculate_mean(vector):
+    total_sum = 0.0
+    for value in vector:
+        total_sum += value
+    return total_sum / len(vector)
+
+def calculate_variance(vector, mean):
+    variance_sum = 0.0
+    for value in vector:
+        variance_sum += (value - mean) ** 2
+return variance_sum / len(vector)
+
+def calculate_covariance(vector1, vector2, mean1, mean2):
+    covariance_sum = 0.0
+    for i in range(len(vector1)):
+        covariance_sum += (vector1[i] - mean1) * (vector2[i] - mean2)
+    return covariance_sum / len(vector1)
+
+def calculate_correlation(vector1, vector2):
+    mean1 = calculate_mean(vector1)
+    mean2 = calculate_mean(vector2)
+    covariance = calculate_covariance(vector1, vector2, mean1, mean2)
+    variance1 = calculate_variance(vector1, mean1)
+    variance2 = calculate_variance(vector2, mean2)
+    correlation = covariance / math.sqrt(variance1 * variance2)
+    return correlation
+
+vector1 = [2.0, 4.0, 6.0, 8.0, 10.0]
+vector2 = [1.0, 3.0, 5.0, 7.0, 9.0]
+
+correlation = calculate_correlation(vector1, vector2)
+
+print(f"Correlation: {correlation}")
+
+Output:
+Correlation: 1.0
+
+4)
+import math
+
+def calculate_mean(vector):
+    total_sum = 0.0
+    for value in vector:
+        total_sum += value
+    return total_sum / len(vector)
+
+def calculate_variance(vector, mean):
+    variance_sum = 0.0
+    for value in vector:
+        variance_sum += (value - mean) ** 2
+    return variance_sum / len(vector)
+def calculate_covariance(vector1, vector2, mean1, mean2):
+    covariance_sum = 0.0
+    for i in range(len(vector1)):
+        covariance_sum += (vector1[i] - mean1) * (vector2[i] - mean2)
+    return covariance_sum / len(vector1)
+
+def calculate_covariance_matrix(matrix):
+    num_features = len(matrix)
+    covariance_matrix = []
+   
+    for i in range(num_features):
+        row = []
+        mean_i = calculate_mean(matrix[i])
+        for j in range(num_features):
+            mean_j = calculate_mean(matrix[j])
+            covariance = calculate_covariance(matrix[i], matrix[j], mean_i, mean_j)
+            row.append(covariance)
+        covariance_matrix.append(row)
+   
+    return covariance_matrix
+
+def calculate_correlation_matrix(matrix):
+    num_features = len(matrix)
+    correlation_matrix = []
+   
+    for i in range(num_features):
+        row = []
+        mean_i = calculate_mean(matrix[i])
+        variance_i = calculate_variance(matrix[i], mean_i)
+       
+        for j in range(num_features):
+            mean_j = calculate_mean(matrix[j])
+            variance_j = calculate_variance(matrix[j], mean_j)
+           
+            covariance = calculate_covariance(matrix[i], matrix[j], mean_i, mean_j)
+            correlation = covariance / math.sqrt(variance_i * variance_j)
+            row.append(correlation)
+        correlation_matrix.append(row)
+   
+    return correlation_matrix
+
+matrix = [
+    [2.0, 4.0, 6.0, 8.0],
+    [1.0, 3.0, 5.0, 7.0],
+    [9.0, 11.0, 13.0, 15.0]
+]
+
+covariance_matrix = calculate_covariance_matrix(matrix)
+correlation_matrix = calculate_correlation_matrix(matrix)
+
+print("Covariance Matrix:")
+for row in covariance_matrix:
+    print(row)
+
+print("\nCorrelation Matrix:")
+for row in correlation_matrix:
+    print(row)
+
+Output:
+Covariance Matrix:
+[5.0, 5.0, 5.0]
+[5.0, 5.0, 5.0]
+[5.0, 5.0, 5.0]
+
+Correlation Matrix:
+[1.0, 1.0, 1.0]
+[1.0, 1.0, 1.0]
+[1.0, 1.0, 1.0]
